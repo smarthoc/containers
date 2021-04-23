@@ -1,0 +1,7 @@
+Squid:
+  image: aymanam/squid:latest
+  ports:
+    - "9090:3128"
+  volumes:
+    - /srv/docker/squid/cache:/var/spool/squid
+  restart: always
