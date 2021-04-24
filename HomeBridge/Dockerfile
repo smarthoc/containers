@@ -1,4 +1,4 @@
-FROM aymanam/base-pip-npm:3.8.8-6.14.12
+FROM aymanam/ubuntu-py-node:3.5.2-4.2.6
 
 ENV HOMEBRIDGE_VERSION=1.3.4 \
     CONFIG_UI_VERSION=4.41.0 \
@@ -8,12 +8,13 @@ ENV HOMEBRIDGE_VERSION=1.3.4 \
 ARG AVAHI
 ENV ENABLE_AVAHI="${AVAHI:-0}"
 
-RUN apk add --no-cache make gcc g++ avahi-compat-libdns_sd avahi-dev dbus \
-    iputils sudo nano net-tools \
+RUN apt-get -y update && apt-get install -y git make g++ libnss-mdns avahi-discover libavahi-compat-libdnssd-dev \
+    net-tools iproute2 sudo nano \
   && mkdir /homebridge \
   && npm set global-style=true \
   && npm set audit=false \
   && npm set fund=false
+
 
 RUN npm install -g --unsafe-perm homebridge@${HOMEBRIDGE_VERSION}
 RUN npm install -g --unsafe-perm homebridge-config-ui-x@${CONFIG_UI_VERSION}
