@@ -13,8 +13,6 @@ RUN set -x && apk add --no-cache libgcc libstdc++ curl curl-dev coreutils tzdata
 
 RUN addgroup -S node && adduser -S node -G node
 
-USER node
-
 RUN mkdir /home/node/code
 
 WORKDIR /home/node/code
