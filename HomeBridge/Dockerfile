@@ -1,4 +1,4 @@
-FROM aymanam/ubuntu-py-node:3.5.2-4.2.6
+FROM aymanam/ubuntu-py-node:3.5.2-14.16.1
 
 ENV HOMEBRIDGE_VERSION=1.3.4 \
     CONFIG_UI_VERSION=4.41.0 \
