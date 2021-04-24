@@ -8,8 +8,6 @@ ENV HOMEBRIDGE_VERSION=1.3.4 \
 ARG AVAHI
 ENV ENABLE_AVAHI="${AVAHI:-0}"
 
-USER root
-
 RUN apk add --no-cache make gcc g++ avahi-compat-libdns_sd avahi-dev dbus \
     iputils sudo nano net-tools \
   && mkdir /homebridge \
